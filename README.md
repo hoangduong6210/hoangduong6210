@@ -1,29 +1,38 @@
 # Duong Viet Hoang
 
-I work on machine learning for electronic design automation, with an emphasis on geometry-aware graph models and parasitic-aware physical design.
+I am an M.Sc. student in Computer Science at Da-Yeh University, Taiwan, working at the intersection of machine learning, electronic design automation, and scientific computing.
 
-I am currently an M.Sc. student in Computer Science at Da-Yeh University, Taiwan. Before graduate study, I worked on analog/mixed-signal physical design at Synopsys and power-magnetics R&D at Premo. That experience shapes the questions I care about: how to make learned EDA models fast enough for design loops without hiding the physics, solver assumptions, or failure modes.
+Before graduate study, I worked on analog/mixed-signal physical design at Synopsys and power-magnetics R&D at PREMO. Those experiences motivate my current research: building learning and decision-support methods for expensive electronic-design and physical-simulation workflows, while keeping the underlying assumptions, numerical fidelity, and failure modes visible.
 
-## Current work
+## Selected research
 
-### [Fast parasitic extraction for PCB-embedded planar magnetics](https://github.com/hoangduong6210/pcb-parasitic-gnn)
+### [Geometry-aware GNNs for parasitic extraction](https://github.com/hoangduong6210/pcb-parasitic-gnn)
 
-A pure-PyTorch message-passing model for four lumped parasitics. On the released evaluation, inference takes 1.17 ms. Median errors are 2.8% / 3.8% / 2.6% for `L_p` / `L_s` / `M` against FastHenry and 3.2% for `C_ps` against electrostatic FEM. The repository includes the experiment drivers, result artifacts, negative results, and known limitations.
+A pure-PyTorch research pipeline for predicting four lumped parasitics of PCB-embedded planar-magnetic winding abstractions. The project integrates graph construction, FastHenry and electrostatic FEM workflows, geometry validation, multi-fidelity evidence, and reproducible experiment contracts.
 
-### [ConfScan](https://github.com/hoangduong6210/Conference-Journal-Management)
+**Current status:** active validation. A post hoc audit quarantined the superseded v2 accuracy results. The replacement v3 corpus contains 1,500 geometry-valid layouts with validated refine-3 FEM artifacts; higher-resolution capacitance validation and the new model evaluation are in progress. The repository makes this evidence boundary explicit and reports no current accuracy headline.
 
-A small research tool for finding and comparing conferences and journals from public sources. It provides a Streamlit interface, command-line workflows, exports, and a test suite.
+### [Bayesian calibration and sequential design for magnetic-core models](https://github.com/hoangduong6210/EIG-bayesian-for-Recover-potential-Physical-Parameter-of-MagComponent)
 
-Other public repositories document exploratory graph-learning and reproducibility
-work. They are kept separate from the EDA research direction above.
+An auditable Bayesian workflow for joint calibration of Steinmetz core-loss and Cole--Cole complex-permeability models. It includes MCMC inference, expected information gain, estimator qualification, paired acquisition-policy benchmarks, measured-data model checks, and frozen evidence.
 
-## Research direction
+**Main finding:** in the prespecified 30-paired-seed matched-model benchmark, EIG tied predictive variance and Laplace D-optimality on measurement count; its cost-normalized form lost to predictive variance and tied Laplace D-optimality on modeled cost. The result identifies a setting in which cheaper acquisition criteria are sufficient, with the negative finding retained alongside trajectory diagnostics, claim limits, and reproducible evidence.
 
-My next step is to move from surrogate prediction to decision-making: parasitic-aware placement, routing, and multi-objective optimization under manufacturability and reliability constraints. I am particularly interested in evaluation protocols that separate interpolation from genuine geometric generalization.
+## Research interests
+
+- Machine learning for EDA and physical design
+- Graph representations for circuits, layouts, and electromagnetic structures
+- Parasitic-aware optimization and design-space exploration
+- Bayesian inference, uncertainty quantification, and sequential experimental design
+- Reproducible evaluation of scientific machine-learning systems
+
+## Research practice
+
+My public research repositories separate exploratory records from admitted evidence. They include explicit claim boundaries, versioned protocols, automated validation, and provenance for the numerical results reported in manuscripts and documentation.
 
 ## Contact
 
-- Email: [duongviethuy6210@gmail.com](mailto:duongviethuy6210@gmail.com)
+- Email: [Hoangduong4316@icloud.com](mailto:Hoangduong4316@icloud.com)
 - Location: Taiwan
 
-I welcome technical discussion about ML for EDA, physical design, graph learning, and reproducible evaluation.
+I welcome technical discussion and research collaboration in ML for EDA, graph learning, magnetic-component modeling, and Bayesian experimental design.
